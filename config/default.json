@@ -1,0 +1,9 @@
+{
+  "port": 8089,
+  "database": {
+    "username": "root",
+    "password": "Rac12gat_sal%",
+    "catalog": "msh_dev",
+    "host": "127.0.0.1"
+  }
+}

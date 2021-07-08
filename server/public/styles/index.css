@@ -1,0 +1,23 @@
+@import "./tailwind.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css";
+
+.toggle-checkbox {
+  outline: none;
+}
+
+.toggle-checkbox:checked {
+  right: 0;
+  border-color: rgb(59, 130, 246);
+}
+
+.toggle-checkbox[disabled]:checked {
+  border-color: rgb(107, 114, 128);
+}
+
+.toggle-checkbox:checked + .toggle-label {
+  background-color: rgb(59, 130, 246);
+}
+
+.toggle-checkbox[disabled]:checked + .toggle-label {
+  background-color: rgb(107, 114, 128);
+}
