@@ -50,7 +50,7 @@ export class SliderComponent extends BaseComponent {
   }
 
   get value() {
-    return parseFloat(this.getAttribute("value") || 0);
+    return parseFloat(this.getAttribute("value") || this.min);
   }
 
   set value(val) {
