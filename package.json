@@ -6,7 +6,8 @@
   "main": "server/public/lib/index.js",
   "module": "server/public/lib/index.esm.js",
   "scripts": {
-    "start": "npx rollup -c && node ./server/index.js",
+    "start": "node ./server/index.js",
+    "build": "npx rollup -c",
     "start:dev": "concurrently --kill-others \"nodemon ./server/index.js\" \"npx rollup -c --watch\""
   },
   "author": "Shaun Farrell",
