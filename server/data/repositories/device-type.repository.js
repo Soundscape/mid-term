@@ -5,6 +5,10 @@ import {
   DeviceTypeSettingOption,
 } from "../models/index.js";
 
+/**
+ * Retrieves a flat map of DeviceTypes.
+ * Includes associated DeviceTypeSettings and DeviceTypeSettingOptions.
+ */
 const baseQuery = `
 SELECT
   \`d\`.\`Id\` as \`id\`,
@@ -97,6 +101,13 @@ function convertDeviceTypeSettingOptions(deviceTypeSetting, data) {
 }
 
 export class DeviceTypeRepository {
+  /**
+   * Retrieves a device type by its ID.
+   * Includes associated DeviceTypeSettings and DeviceTypeSettingOptions.
+   * 
+   * @param {number} id  The device type ID (Key)
+   * @returns The device type
+   */
   async getById(id) {
     const query = `${baseQuery} WHERE \`id\` = ?`;
 
@@ -106,6 +117,12 @@ export class DeviceTypeRepository {
     return result;
   }
 
+  /**
+   * Retrieves a list of device types.
+   * Includes associated DeviceTypeSettings and DeviceTypeSettingOptions.
+   * 
+   * @returns A list of device types
+   */
   async get() {
     const query = `${baseQuery}`;
 
@@ -115,6 +132,11 @@ export class DeviceTypeRepository {
     return result;
   }
 
+  /**
+   * Creates a new device type
+   * @param {string} payload.name  The name
+   * @returns The created device type
+   */
   async create(payload) {
     const command = "INSERT INTO `DeviceTypes` (`Name`) VALUES (?);";
 
@@ -124,6 +146,12 @@ export class DeviceTypeRepository {
     return result;
   }
 
+  /**
+   * Updates the specified device type
+   * @param {number} payload.id  The device type ID (Key)
+   * @param {string} payload.name  The name
+   * @returns The updated device device type
+   */
   async update(payload) {
     const command = "UPDATE `DeviceTypes` SET `Name` = ? WHERE `Id` = ?;";
 
@@ -133,6 +161,11 @@ export class DeviceTypeRepository {
     return result;
   }
 
+  /**
+   * Deletes the specified device type
+   * @param {number} id  The device type ID (Key)
+   * @returns No output
+   */
   async delete(id) {
     const command = "DELETE FROM `DeviceTypes` WHERE `Id` = ?;";
 

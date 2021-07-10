@@ -2,6 +2,10 @@ import { db } from "../index.js";
 import { Device, DeviceSetting } from "../models/index.js";
 import { deviceSettingRepository } from "./device-setting.repository.js";
 
+/**
+ * Retrieves a flat map of Devices.
+ * Includes associated DeviceSettings.
+ */
 const baseQuery = `
 SELECT
   \`d\`.\`Id\` as \`id\`,
@@ -51,6 +55,13 @@ function convertDeviceSettings(device, data) {
 }
 
 export class DeviceRepository {
+  /**
+   * Retrieves a device by its ID.
+   * Includes associated DeviceSettings.
+   * 
+   * @param {number} id  The device ID (Key)
+   * @returns The device
+   */
   async getById(id) {
     const query = `${baseQuery} WHERE \`id\` = ?`;
 
@@ -60,6 +71,12 @@ export class DeviceRepository {
     return result;
   }
 
+  /**
+   * Retrieves a list of devices.
+   * Includes associated DeviceSettings.
+   * 
+   * @returns A list of devices
+   */
   async get() {
     const query = `${baseQuery}`;
 
@@ -69,6 +86,12 @@ export class DeviceRepository {
     return result;
   }
 
+  /**
+   * Creates a new device
+   * @param {number} payload.deviceTypeId  The device type ID
+   * @param {string} payload.name  The name
+   * @returns The created device
+   */
   async create(payload) {
     await db.promise().beginTransaction();
     const command =
@@ -95,6 +118,13 @@ export class DeviceRepository {
     return result;
   }
 
+  /**
+   * Updates the specified device
+   * @param {number} payload.id  The device ID (Key)
+   * @param {number} payload.deviceTypeId  The device type ID
+   * @param {string} payload.name  The name
+   * @returns The updated device device
+   */
   async update(payload) {
     await db.promise().beginTransaction();
     const command =
@@ -120,6 +150,11 @@ export class DeviceRepository {
     return result;
   }
 
+  /**
+   * Deletes the specified device
+   * @param {number} id  The device ID (Key)
+   * @returns No output
+   */
   async delete(id) {
     const command = "DELETE FROM `Devices` WHERE `Id` = ?;";
 
