@@ -167,3 +167,157 @@ VALUES ('20210701104211_SeedDeviceTypes', '5.0.7');
 
 COMMIT;
 
+START TRANSACTION;
+
+UPDATE `DeviceTypeSettings` SET `Name` = 'Active'
+WHERE `Id` = 1;
+SELECT ROW_COUNT();
+
+
+UPDATE `DeviceTypeSettings` SET `Name` = 'Active'
+WHERE `Id` = 3;
+SELECT ROW_COUNT();
+
+
+UPDATE `DeviceTypeSettings` SET `Name` = 'Locked'
+WHERE `Id` = 4;
+SELECT ROW_COUNT();
+
+
+UPDATE `DeviceTypeSettings` SET `Name` = 'Active'
+WHERE `Id` = 5;
+SELECT ROW_COUNT();
+
+
+UPDATE `DeviceTypeSettings` SET `Name` = 'Active'
+WHERE `Id` = 7;
+SELECT ROW_COUNT();
+
+
+UPDATE `DeviceTypeSettings` SET `Name` = 'Active'
+WHERE `Id` = 10;
+SELECT ROW_COUNT();
+
+
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (20, 'Grow Light');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (19, 'Gas Sensor');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (18, 'Gas Sensor');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (17, 'Security Camera');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (16, 'Vacuum');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (14, 'Pool Ph Regulator');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (13, 'Fridge');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (12, 'Sound System');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (11, 'Alarm');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (10, 'Boiler');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (9, 'Driveway Gate');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (8, 'Garage Door');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (15, 'Pool Level Regulator');
+INSERT INTO `DeviceTypes` (`Id`, `Name`)
+VALUES (7, 'Electric Blinds');
+
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (13, 'Number', 7, 1, 0, 'Position', TRUE, 0.1);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (29, 'Boolean', 18, NULL, NULL, 'On', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (28, 'Boolean', 17, NULL, NULL, 'On', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (27, 'List', 16, NULL, NULL, 'Schedule', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (26, 'Boolean', 16, NULL, NULL, 'On', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (25, 'Number', 15, 10, 0, 'Height', TRUE, 1);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (24, 'Number', 14, 7.8, 7.2, 'Temperature', TRUE, 0.1);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (23, 'Boolean', 14, NULL, NULL, 'On', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (30, 'Boolean', 19, NULL, NULL, 'On', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (22, 'Number', 13, 10, -18, 'Temperature', TRUE, 1);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (20, 'Number', 12, 50, 0, 'Volume', TRUE, 1);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (19, 'Boolean', 12, NULL, NULL, 'On', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (18, 'Boolean', 11, NULL, NULL, 'Armed', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (17, 'Number', 10, 75, 40, 'Temperature', TRUE, 1);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (16, 'Boolean', 10, NULL, NULL, 'On', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (15, 'Boolean', 9, NULL, NULL, 'Open', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (14, 'Boolean', 8, NULL, NULL, 'Open', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (21, 'Boolean', 13, NULL, NULL, 'On', TRUE, NULL);
+INSERT INTO `DeviceTypeSettings` (`Id`, `DataType`, `DeviceTypeId`, `Max`, `Min`, `Name`, `Required`, `Step`)
+VALUES (31, 'Boolean', 20, NULL, NULL, 'On', TRUE, NULL);
+
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (28, 27, '00:00', '00:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (49, 27, '21:00', '21:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (48, 27, '20:00', '20:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (47, 27, '19:00', '19:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (46, 27, '18:00', '18:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (45, 27, '17:00', '17:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (44, 27, '16:00', '16:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (43, 27, '15:00', '15:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (42, 27, '14:00', '14:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (41, 27, '13:00', '13:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (40, 27, '12:00', '12:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (39, 27, '11:00', '11:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (38, 27, '10:00', '10:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (37, 27, '09:00', '09:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (36, 27, '08:00', '08:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (35, 27, '07:00', '07:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (34, 27, '06:00', '06:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (33, 27, '05:00', '05:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (32, 27, '04:00', '04:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (31, 27, '03:00', '03:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (30, 27, '02:00', '02:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (29, 27, '01:00', '01:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (50, 27, '22:00', '22:00');
+INSERT INTO `DeviceTypeSettingOptions` (`Id`, `DeviceTypeSettingId`, `Text`, `Value`)
+VALUES (51, 27, '23:00', '23:00');
+
+INSERT INTO `__EFMigrationsHistory` (`MigrationId`, `ProductVersion`)
+VALUES ('20210710065110_MoreDeviceTypes', '5.0.7');
+
+COMMIT;
+
